@@ -1,0 +1,213 @@
+*:not(i) {
+    font-family: Vazir, sans-serif !important;
+    box-sizing: border-box;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgb(105, 104, 104);
+    border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #6d6c6c;
+}
+*:not(i) {
+    font-family: Vazir, sans-serif !important;
+}
+
+[x-cloak] {
+    display: none;
+}
+
+/* main navbar styles */
+.main-nav {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    bottom: 0;
+    width: 250px;
+    transition: all 500ms ease-in-out;
+    z-index: 1000;
+}
+.open {
+    right: 0;
+}
+
+.link-s {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    text-decoration: none;
+    color: white;
+    margin-right: 0.5rem;
+    padding: 0.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Request {
+    background-color: seagreen;
+}
+
+.NO-Price {
+    background-color: black;
+}
+.NO-Mobis {
+    background-color: red;
+}
+
+.part {
+    width: 30px !important;
+    height: 30px !important;
+}
+
+.weight {
+    background-color: rgb(231, 98, 98);
+    display: inline-block;
+    font-size: 12px;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    color: white;
+}
+
+.mobis {
+    background-color: rgb(190, 187, 187);
+}
+
+#error {
+    text-align: center;
+    background-color: rgb(107, 106, 106);
+    color: white;
+    font-family: Vazir, sans-serif !important;
+}
+
+th,
+.text-white {
+    color: white;
+}
+
+td.A,
+td.B,
+td.C,
+td.D,
+td.E,
+td.F,
+td.G {
+    font-weight: bold;
+}
+
+.A {
+    background-color: brown;
+}
+
+.B {
+    background-color: red;
+}
+
+.C {
+    background-color: #b68f3a;
+}
+
+.D {
+    background-color: #b63a95;
+}
+
+.E {
+    background-color: #3a86b6;
+}
+
+.F {
+    background-color: #de6ffa;
+}
+
+.G {
+    background-color: #fc8ea0;
+}
+
+td.A {
+    background-color: rgb(224, 84, 3);
+}
+
+td.B {
+    background-color: rgb(255, 145, 0);
+}
+
+td.C {
+    background-color: #d8a943;
+}
+
+td.D {
+    background-color: #e449ba;
+}
+
+td.E {
+    background-color: #47b0f1;
+}
+
+td.F {
+    background-color: #e58ffa;
+}
+
+td.G {
+    background-color: #f8b6c1;
+}
+
+.b-A,
+.b-B,
+.b-C,
+.b-D,
+.b-E,
+.b-F,
+.b-G {
+    font-weight: bold !important;
+}
+
+.part {
+    width: 250px !important;
+}
+
+.dollar {
+    width: 80px !important;
+}
+
+.social {
+    width: 20px;
+}
+
+.action {
+    width: 150px;
+}
+
+.kg {
+    width: 70px;
+}
+
+.orange {
+    background-color: orange;
+    font-weight: bold;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+@media only screen and (min-width: 600px) {
+    .h-70S {
+        height: 700px;
+    }
+}
