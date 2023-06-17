@@ -80,7 +80,7 @@ class PriceController extends Controller
                             $data[$code][$item->partnumber]['information'] = $this->info($item->id);
                             $data[$code][$item->partnumber]['relation'] = $this->relations($item->id);
                             $data[$code][$item->partnumber]['givenPrice'] = $this->givenPrice($item->partnumber, $relation_exist);
-                            $data[$code][$item->partnumber]['estelam'] = $this->estelam($item->partnumber, $relation_exist);
+                            $data[$code][$item->partnumber]['estelam'] = $this->estelam($item->partnumber);
                         }
                     } else {
                         $data[$code][$item->partnumber]['information'] = $this->info($item->id);
@@ -236,7 +236,7 @@ class PriceController extends Controller
         $estelam = DB::table('callcenter.estelam')
             ->join('yadakshop1402.seller', 'seller.id', '=', 'estelam.seller')
             ->where('codename', 'like', "$code%")
-            ->orderBy('created_at', 'desc')
+            ->orderBy('time', 'desc')
             ->limit(7)->get();
 
         return $estelam;

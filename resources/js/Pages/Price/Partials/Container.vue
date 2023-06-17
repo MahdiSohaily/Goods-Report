@@ -34,6 +34,6 @@ const updatePrice = (value) => {
     <GivenPrice :customer="customer" :completeCode="completeCode" :information="existing[code][index]['information']"
         :notification="notification" :givenPrice="existing[code][index]['givenPrice']"
         @setPrice="(value) => updatePrice(value)" :price="price" :partNumber="index" />
-    <Estelam />
+    <Estelam :estelam="existing[code][index]['estelam']" />
 </template>
 <style></style>
