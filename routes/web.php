@@ -23,7 +23,7 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
-    return DB::table('callcenter.customer')->get();
+    return DB::table('yadakshop1402.customer')->get();
     return Inertia::render('Auth/Login', [
         'canLogin' => Route::has('login'),
         'canRegister' => false,
