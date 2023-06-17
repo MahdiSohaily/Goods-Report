@@ -285,8 +285,8 @@ class PriceController extends Controller
     {
         $result =
             DB::table('qtybank')
-            ->join('brand', 'brand.id', '=', 'qtybank.brand')
-            ->select('qtybank.id', 'codeid', 'brand.name', 'qty')
+            ->join('yadak.brand', 'yadak.brand.id', '=', 'qtybank.brand')
+            ->select('qtybank.id', 'codeid', 'yadak.brand.name', 'qty')
             ->where('codeid', $id)
             ->get();
         $brands = [];
