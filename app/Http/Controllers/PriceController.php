@@ -242,7 +242,7 @@ class PriceController extends Controller
     public function stockInfo($id, $brand)
     {
 
-        $brand_id = DB::table('yadak.brand')->select('id')->where('yadak.brand.name', '=', $brand)
+        $brand_id = DB::table('yadakshop1402.brand')->select('id')->where('yadakshop1402.brand.name', '=', $brand)
             ->first();
 
         $result =
@@ -250,7 +250,7 @@ class PriceController extends Controller
             ->select('qtybank.id', 'qtybank.qty', 'seller.name')
             ->join('seller', 'qtybank.seller', '=', 'seller.id')
             ->where('codeid', $id)
-            ->where('yadak.brand', $brand_id->id)
+            ->where('yadakshop1402.brand', $brand_id->id)
             ->get();
 
         $existing_record = [];
