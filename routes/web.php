@@ -8,6 +8,7 @@ use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\RateController;
 use App\Http\Controllers\RelationController;
 use App\Http\Controllers\PriceController;
+use Illuminate\Support\Facades\DB;
 use Inertia\Inertia;
 
 /*
@@ -22,6 +23,7 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
+    return DB::table('callcenter.customer')->get();
     return Inertia::render('Auth/Login', [
         'canLogin' => Route::has('login'),
         'canRegister' => false,
