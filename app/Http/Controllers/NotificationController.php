@@ -52,7 +52,9 @@ class NotificationController extends Controller
             ->join('callcenter.customer', 'customer.id', '=', 'ask_price.customer_id')
             ->select('ask_price.*', 'users.id AS user_id', 'customer.id AS customer_id', 'customer.name AS customer_name', 'users.name AS user_name')
             ->where('user_id', '=', Auth::user()->id)
-            ->where('notify', '=', 'done')->get();
+            ->where('notify', '=', 'done')
+            ->limit(10)
+            ->get();
 
         return Inertia::render('Notifications/Show', [
             'answeredNotifications' => $answeredNotifications,
