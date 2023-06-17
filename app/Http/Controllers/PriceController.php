@@ -246,9 +246,9 @@ class PriceController extends Controller
             ->first();
 
         $result =
-            DB::table('qtybank')
+            DB::table('yadakshop1402.qtybank')
             ->select('qtybank.id', 'qtybank.qty', 'seller.name')
-            ->join('seller', 'qtybank.seller', '=', 'seller.id')
+            ->join('yadakshop1402.seller', 'qtybank.seller', '=', 'seller.id')
             ->where('codeid', $id)
             ->where('brand', $brand_id->id)
             ->get();
@@ -284,9 +284,9 @@ class PriceController extends Controller
     public function exist($id)
     {
         $result =
-            DB::table('qtybank')
-            ->join('yadakshop1402.brand', 'yadakshop1402.brand.id', '=', 'qtybank.brand')
-            ->select('qtybank.id', 'codeid', 'yadakshop1402.brand.name', 'qty')
+            DB::table('yadakshop1402.qtybank')
+            ->join('yadakshop1402.brand', 'brand.id', '=', 'qtybank.brand')
+            ->select('yadakshop1402.qtybank.id', 'codeid', 'brand.name', 'qty')
             ->where('codeid', $id)
             ->get();
         $brands = [];
