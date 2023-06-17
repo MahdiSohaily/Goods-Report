@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\DB;
 */
 
 Route::get('/', function () {
-    return DB::connection('callcenter')->table('label')->first();
+    return DB::('callcenter')->table('label')->first();
     return Inertia::render('Auth/Login', [
         'canLogin' => Route::has('login'),
         'canRegister' => false,
