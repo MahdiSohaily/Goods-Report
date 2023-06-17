@@ -92,7 +92,7 @@ class PriceController extends Controller
             }
         }
 
-        //return $data;
+       // return $data;
 
         return Inertia::render('Price/Partials/Load', [
             'explodedCodes' => $explodedCodes,
@@ -214,7 +214,7 @@ class PriceController extends Controller
         }
 
         $givenPrices = DB::table('prices')
-            ->join('callcenter.customer', 'callcenter.customer.id', '=', 'prices.customer_id')
+            ->join('callcenter.customer', 'customer.id', '=', 'prices.customer_id')
             ->where('partnumber', 'like', "$code%")
             ->orderBy('created_at', 'desc')
             ->limit(7)->get();
@@ -255,7 +255,7 @@ class PriceController extends Controller
     public function stockInfo($id, $brand)
     {
 
-        $brand_id = DB::table('yadakshop1402.brand')->select('id')->where('yadakshop1402.brand.name', '=', $brand)
+        $brand_id = DB::table('yadakshop1402.brand')->select('id')->where('brand.name', '=', $brand)
             ->first();
 
         $result =

@@ -23,13 +23,7 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
-    $estelam = DB::table('callcenter.estelam')
-        ->join('yadakshop1402.seller', 'seller.id', '=', 'estelam.seller')
-        ->where('codename', 'like', "581012SA51%")
-        ->orderBy('time', 'desc')
-        ->limit(7)->get();
 
-    return $estelam;
     return Inertia::render('Auth/Login', [
         'canLogin' => Route::has('login'),
         'canRegister' => false,
