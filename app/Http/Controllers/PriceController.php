@@ -106,11 +106,12 @@ class PriceController extends Controller
     public function validateRequest($all_data)
     {
         Validator::make($all_data, [
-            'customer' => 'required|exists:customers,id',
+            'customer' => 'required|exists:callcenter.customer,id',
             'code' => 'required|string',
 
         ], [
             'required' => "وارد کردن :attribute الزامی می باشد.",
+            'exists' => ":attribute وارد شده در سیستم موجود نیست."
         ], [
             'customer' => 'مشتری',
             'code' => 'کد'
@@ -211,7 +212,7 @@ class PriceController extends Controller
         }
 
         $givenPrices = DB::table('prices')
-            ->join('customers', 'customers.id', '=', 'prices.customer_id')
+            ->join('callcenter.customer', 'callcenter.customer.id', '=', 'prices.customer_id')
             ->where('partnumber', 'like', "$code%")
             ->orderBy('created_at', 'desc')
             ->limit(7)->get();
