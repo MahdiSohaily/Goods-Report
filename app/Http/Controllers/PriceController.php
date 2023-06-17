@@ -232,7 +232,7 @@ class PriceController extends Controller
     public function out($id)
     {
         $result =
-            DB::table('exitrecord')
+            DB::table('yadakshop1402.exitrecord')
             ->select('qty')
             ->where('qtyid', $id)
             ->first();
