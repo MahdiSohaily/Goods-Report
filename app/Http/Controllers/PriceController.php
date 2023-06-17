@@ -250,7 +250,7 @@ class PriceController extends Controller
             ->select('qtybank.id', 'qtybank.qty', 'seller.name')
             ->join('seller', 'qtybank.seller', '=', 'seller.id')
             ->where('codeid', $id)
-            ->where('yadakshop1402.brand', $brand_id->id)
+            ->where('brand', $brand_id->id)
             ->get();
 
         $existing_record = [];
@@ -285,8 +285,8 @@ class PriceController extends Controller
     {
         $result =
             DB::table('qtybank')
-            ->join('yadak.brand', 'yadak.brand.id', '=', 'qtybank.brand')
-            ->select('qtybank.id', 'codeid', 'yadak.brand.name', 'qty')
+            ->join('yadakshop1402.brand', 'yadakshop1402.brand.id', '=', 'qtybank.brand')
+            ->select('qtybank.id', 'codeid', 'yadakshop1402.brand.name', 'qty')
             ->where('codeid', $id)
             ->get();
         $brands = [];
