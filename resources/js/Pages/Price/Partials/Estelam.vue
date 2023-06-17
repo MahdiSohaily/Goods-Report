@@ -1,20 +1,9 @@
 <script setup>
 
-const form = useForm({
-    _method: "GET",
-    customer: null,
-    code: null,
+const props = defineProps({
+    existing: Array,
 });
 
-const LoadPrice = () => {
-    form.post(route("price.load"), {
-        errorBag: "LoadPrice",
-        preserveScroll: true,
-        onSuccess: () => clearInput(),
-    });
-};
-
-const clearInput = () => { };
 </script>
 
 <template>
@@ -34,16 +23,16 @@ const clearInput = () => { };
                 <tbody>
                     <tr class="bg-gray-200" v-for="price in item.result.estelam">
                         <td scope="col" class="px-3 text-gray-800 py-3 break-words">
-                            {{ price.codename }}
+                          f
                         </td>
                         <td scope="col" class="px-3 text-gray-800 py-3 break-words">
-                            {{ price.price }}
+                           f
                         </td>
                         <td scope="col" class="px-3 text-gray-800 py-3">
-                            {{ price.name }}
+                            f
                         </td>
                         <td scope="col" class="px-3 text-gray-800 py-3">
-                            {{ arrangeTime(price.time) }}
+                           f
                         </td>
                     </tr>
                 </tbody>

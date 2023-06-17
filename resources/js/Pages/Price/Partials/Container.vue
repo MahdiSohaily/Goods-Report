@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, ref, watch } from 'vue';
+import { ref } from 'vue';
 import CodeInfo from "./CodeInfo.vue";
 import RelationsDetails from "./RelationsDetails.vue";
 import GivenPrice from "./GivenPrice.vue";
@@ -34,6 +34,6 @@ const updatePrice = (value) => {
     <GivenPrice :customer="customer" :completeCode="completeCode" :information="existing[code][index]['information']"
         :notification="notification" :givenPrice="existing[code][index]['givenPrice']"
         @setPrice="(value) => updatePrice(value)" :price="price" :partNumber="index" />
-    <!--  <Estelam /> -->
+    <Estelam />
 </template>
 <style></style>

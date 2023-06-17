@@ -401,7 +401,7 @@ class PriceController extends Controller
     {
         $id = $request->input('id');
 
-        $customer = DB::table('customers')
+        $customer = DB::table('callcenter.customer')
             ->select('name')
             ->where('id', $id)
             ->first();
