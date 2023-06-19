@@ -47,7 +47,7 @@ class PriceController extends Controller
 
         foreach ($explodedCodes as $code) {
 
-            $good = DB::table('nisha')->select('id', 'partnumber')->where('partNumber', 'like', "$code%")->get();
+            $good = DB::table('yadakshop1402.nisha')->select('id', 'partnumber')->where('partNumber', 'like', "$code%")->get();
             if (count($good)) {
                 $existing_code[$code] = $good;
             } else {
@@ -58,7 +58,7 @@ class PriceController extends Controller
         $existing_code = [];
         foreach ($explodedCodes as $code) {
 
-            $good = DB::table('nisha')->select('id', 'partnumber')->where('partNumber', 'like', "$code%")->get();
+            $good = DB::table('yadakshop1402.nisha')->select('id', 'partnumber')->where('partNumber', 'like', "$code%")->get();
             if (count($good)) {
                 $existing_code[$code] = $good;
             } else {
@@ -174,13 +174,13 @@ class PriceController extends Controller
 
         if ($isInRelation) {
 
-            $relations = DB::table('nisha')
+            $relations = DB::table('yadakshop1402.nisha')
                 ->join('similars', 'nisha.id', '=', 'similars.nisha_id')
-                ->select('nisha.*')
+                ->select('yadakshop1402.nisha.*')
                 ->where('similars.pattern_id', $isInRelation->pattern_id)
                 ->get();
         } else {
-            $relations = DB::table('nisha')->where('id', $id)->get();
+            $relations = DB::table('yadakshop1402.nisha')->where('id', $id)->get();
         }
 
         $existing = [];
@@ -334,7 +334,7 @@ class PriceController extends Controller
     public function store(Request $request)
     {
         Validator::make($request->all(), [
-            'partnumber' => 'required|string|exists:nisha,partnumber'
+            'partnumber' => 'required|string|exists:yadakshop.nisha,partnumber'
 
         ], [
             'required' => "The :attribute field can't be empty.",

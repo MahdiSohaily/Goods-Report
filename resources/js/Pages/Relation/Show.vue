@@ -210,7 +210,6 @@ const createRelation = () => {
     form.post(route(url), {
         preserveScroll: true,
         onSuccess: (response) => {
-            console.log(response);
             clearAll();
         },
     });
