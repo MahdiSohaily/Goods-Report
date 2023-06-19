@@ -120,7 +120,7 @@ class GoodController extends Controller
 
     public function edit($good)
     {
-        $good = Good::find($good);
+        $good = DB::table('yadakshop1402.nisha')->where('id', '=', $good)->first();
         return Inertia::render('Goods/Partials/Update', ['good' => $good]);
     }
 
@@ -132,13 +132,15 @@ class GoodController extends Controller
         $mobis = $request->input('mobis');
         $korea = $request->input('korea');
 
-        $good = Good::find($good);
-        $good->partnumber = $serial;
-        $good->price = $price;
-        $good->weight = $weight;
-        $good->mobis = $mobis;
-        $good->korea = $korea;
-        $good->save();
+        DB::table('yadakshop1402.nisha')
+            ->where('id', '=', $good)
+            ->update([
+                'partnumber' => $serial,
+                'price' => $price,
+                'weight' => $weight,
+                'mobis' => $mobis,
+                'korea' => $korea,
+            ]);
         return Inertia::render('Goods/Partials/Update', ['good' => $good]);
     }
 
