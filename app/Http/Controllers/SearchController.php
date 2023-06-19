@@ -21,7 +21,7 @@ class SearchController extends Controller
     public function search(Request $request)
     {
         $pattern = $request->input('pattern');
-        $result = DB::table('nisha')->where('partnumber', 'like', "$pattern%")->get();
+        $result = DB::table('yadakshop1402.nisha')->where('partnumber', 'like', "$pattern%")->get();
         return response()->json([$result]);
     }
 
@@ -32,7 +32,7 @@ class SearchController extends Controller
             ->orderBy('amount', 'asc')
             ->get();
 
-        $good = DB::table('nisha')->where('partnumber', '=', "$mobis")->first();
+        $good = DB::table('yadakshop1402.nisha')->where('partnumber', '=', "$mobis")->first();
 
         $result = $this->checkMobis($mobis, $good);
 
@@ -60,7 +60,7 @@ class SearchController extends Controller
         if ($this->get_http_response_code("https://partsmotors.com/products/$mobis") != "200") {
 
             DB::update(
-                "update nisha set mobis = '-' where partnumber = ?",
+                "update yadakshop1402.nisha set mobis = '-' where partnumber = ?",
                 [$mobis]
             );
             return $item;
@@ -78,7 +78,7 @@ class SearchController extends Controller
             $price = str_replace(",", "", $price);
             // Updating the current item mobis
             DB::update(
-                "update nisha set mobis = ? where partnumber = ?",
+                "update yadakshop1402.nisha set mobis = ? where partnumber = ?",
                 [$price, $mobis]
             );
 

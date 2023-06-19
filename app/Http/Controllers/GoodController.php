@@ -12,12 +12,12 @@ class GoodController extends Controller
 {
     public function index()
     {
-        $goods = DB::table('nisha')
+        $goods = DB::table('yadakshop1402.nisha')
             ->limit(10)
             ->orderBy('id', 'asc')
             ->get();
 
-        $goods_count = DB::table('nisha')
+        $goods_count = DB::table('yadakshop1402.nisha')
             ->count();
         return Inertia::render('Goods/Show', ['goods' => $goods, 'count' => $goods_count]);
     }
@@ -28,28 +28,28 @@ class GoodController extends Controller
         $pattern = $request->input('pattern');
         $limit = 10;
         $goods = null;
-        $goods_count = DB::table('nisha')
+        $goods_count = DB::table('yadakshop1402.nisha')
             ->count();
 
         if ($pattern) {
-            $goods_count = DB::table('nisha')
+            $goods_count = DB::table('yadakshop1402.nisha')
                 ->where('partnumber', 'like', '%' . $pattern . '%')
                 ->count();
             if ($goods_count > 10) {
-                $goods = DB::table('nisha')
+                $goods = DB::table('yadakshop1402.nisha')
                     ->where('partnumber', 'like', '%' . $pattern . '%')
                     ->offset($limit * $page)
                     ->limit(10)
                     ->orderBy('id', 'asc')
                     ->get();
             } else {
-                $goods = DB::table('nisha')
+                $goods = DB::table('yadakshop1402.nisha')
                     ->where('partnumber', 'like', '%' . $pattern . '%')
                     ->orderBy('id', 'asc')
                     ->get();
             }
         } else {
-            $goods = DB::table('nisha')
+            $goods = DB::table('yadakshop1402.nisha')
                 ->offset($limit * $page)
                 ->limit(10)
                 ->orderBy('id', 'asc')
@@ -64,25 +64,25 @@ class GoodController extends Controller
         $pattern = $request->input('pattern');
         $goods = null;
         if (strlen($pattern) > 0) {
-            $goods_count = DB::table('nisha')
+            $goods_count = DB::table('yadakshop1402.nisha')
                 ->where('partnumber', 'like', '%' . $pattern . '%')
                 ->count();
             if ($goods_count > 10) {
-                $goods = DB::table('nisha')
+                $goods = DB::table('yadakshop1402.nisha')
                     ->where('partnumber', 'like', '%' . $pattern . '%')
                     ->limit(10)
                     ->orderBy('id', 'asc')
                     ->get();
             } else {
-                $goods = DB::table('nisha')
+                $goods = DB::table('yadakshop1402.nisha')
                     ->where('partnumber', 'like', '%' . $pattern . '%')
                     ->orderBy('id', 'asc')
                     ->get();
             }
         } else {
-            $goods_count = DB::table('nisha')
+            $goods_count = DB::table('yadakshop1402.nisha')
                 ->count();
-            $goods = DB::table('nisha')
+            $goods = DB::table('yadakshop1402.nisha')
                 ->limit(10)
                 ->orderBy('id', 'asc')
                 ->get();
@@ -144,6 +144,6 @@ class GoodController extends Controller
 
     public function delete($id)
     {
-        DB::table('nisha')->delete($id);
+        DB::table('yadakshop1402.nisha')->delete($id);
     }
 }
