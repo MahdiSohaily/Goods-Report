@@ -18,7 +18,6 @@ class PriceController extends Controller
 
     public function load(Request $request)
     {
-
         if ($request->input('customer')) {
             $this->validateRequest($request->all());
             $customer = $request->input('customer');
