@@ -29,8 +29,37 @@ const updatePrice = (value) => {
 </script>
 <template>
     <CodeInfo :information="existing[code][index]['information']" :partNumber="index" />
-    <RelationsDetails :rates="props.rates" :relation="existing[code][index]['relation']"
-        :exist="existing[code][index]['exist']" @setPrice="(value) => updatePrice(value)" />
+
+
+
+
+
+
+
+
+
+
+    <RelationsDetails 
+    :rates="props.rates" 
+    :relation="existing[code][index]['relation']"
+    :exist="existing[code][index]['exist']"
+     @setPrice="(value) => updatePrice(value)" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+     
+
+
     <GivenPrice :customer="customer" :completeCode="completeCode" :information="existing[code][index]['information']"
         :notification="notification" :givenPrice="existing[code][index]['givenPrice']"
         @setPrice="(value) => updatePrice(value)" :price="price" :partNumber="index" />

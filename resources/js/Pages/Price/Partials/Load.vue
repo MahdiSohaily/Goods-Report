@@ -28,6 +28,7 @@ const props = defineProps({
           </label>
           <div class="accordion__content overflow-hidden bg-grey-lighter">
             <div v-for="item, index of existing[code]" class="grid grid-cols-1 md:grid-cols-10 gap-6 lg:gap-2 lg:p-2">
+              {{ existing[code][index]['exist'] }}
               <Container :code="code" :index="index" :existing="existing"
                 :information="existing[code][index]['information']" :partNumber="index" :rates="props.rates"
                 :relation="existing[code][index]['relation']" :exist="existing[code][index]['exist']"
